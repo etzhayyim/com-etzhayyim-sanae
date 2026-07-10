@@ -15,7 +15,12 @@
     regenerative soil — soilRegenerationReport records soilCarbonDeltaPermille; field phases bounded
 
   It weakens no gate; it asserts them. The dividend-coupling (G2), cash≡0 (G5), Murakumo-only (G4),
-  outward-gating (G7) and witness-quorum (G3) gates live in cells/manifest and are untouched here."
+  outward-gating (G7) and witness-quorum (G3) gates live in cells/manifest and are untouched here.
+
+  `lex/*.edn` are now Datomic/Datascript tx-data (edn-datomize fanout, 2026-07-10): each file's
+  top-level map is wrapped `[{:db/id -1 :lex.<name>/lexicon ... :lex.<name>/defs <pr-str blob>}]`.
+  `lex` below reconstitutes the original bare-keyed map (defs unblobbed back to a nested map) so
+  every assertion below is unchanged."
   (:require [clojure.test :refer [deftest is run-tests]]
             [clojure.set :as set]
             [clojure.edn :as edn]))
@@ -25,8 +30,17 @@
      (def ^:private here (.getParentFile (java.io.File. ^String *file*)))      ;; methods/
      (def ^:private actor-dir (.getParentFile here))                          ;; sanae/
      (def ^:private lexdir (java.io.File. actor-dir "lex"))
+     (defn- unblob [v]
+       (if (string? v)
+         (try (let [parsed (edn/read-string v)] (if (coll? parsed) parsed v))
+              (catch Exception _ v))
+         v))
+     (defn- reconstitute-entity [tx-data]
+       (into {} (map (fn [[k v]] [(keyword (name k)) (unblob v)]))
+             (dissoc (first tx-data) :db/id)))
      (defn- lex [name]
-       (edn/read-string (slurp (java.io.File. lexdir (str name ".edn")))))))
+       (reconstitute-entity
+        (edn/read-string (slurp (java.io.File. lexdir (str name ".edn"))))))))
 
 (defn- record-node [doc] (get-in doc [:defs :main :record]))
 (defn- required-of [doc] (set (:required (record-node doc))))
