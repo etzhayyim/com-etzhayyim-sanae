@@ -1,6 +1,6 @@
 (ns sanae.cells.autonomous-weeding.state-machine
   "Phase state machine for the sanae 早苗 autonomous_weeding (草薙) cell.
-  1:1 port of cells/autonomous_weeding/state_machine.py (ADR-2606032100).
+  Native CLJC implementation (ADR-2606032100).
 
   Herbicide-free: the only weed-clearing methods are :mechanical and :laser (G9). A pass record
   carries the witness signatures (>=2 robot + >=1 human, G3) and an explicit herbicide-free assertion.

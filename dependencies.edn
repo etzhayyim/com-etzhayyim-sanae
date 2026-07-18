@@ -1,0 +1,5 @@
+{:dependencies/version 1
+ :runtime #{:clojure :cljc :babashka}
+ :external []
+ :deprecated #{:go :tinygo :python-parity :wasm-build}
+ :go/artifacts []}

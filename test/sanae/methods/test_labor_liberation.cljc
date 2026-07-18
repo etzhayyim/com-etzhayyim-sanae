@@ -1,6 +1,6 @@
 (ns sanae.methods.test-labor-liberation
   "sanae 早苗 — LPS ranking method tests (ADR-2606032100).
-  1:1 Clojure port of methods/test_labor_liberation.py.
+  Native CLJC invariant suite.
 
   Verifies the empirical Liberation Priority Score invariants empirically:
     - the N1-excluded sector (mining, charter-fit 0.0) scores exactly zero

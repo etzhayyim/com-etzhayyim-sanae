@@ -4,8 +4,8 @@
   "labor_coverage.cljc — the build-priority worklist for the labor-liberation OSS-robotics roster
   (ADR-2606032100 / 2606032130). sanae.methods.labor-liberation ranks toil sectors by Liberation
   Priority Score (LPS = log10(headcount)·misery·automatability·charter-fit·coverage-gap); this
-  namespace CROSS-REFERENCES that ranking against the actual actor roster (does 20-actors/<slug>
-  exist?) so the org can SEE the highest-priority toil that still has no liberating actor — the
+  namespace CROSS-REFERENCES that ranking against the flat multirepo actor roster (does a sibling
+  com-etzhayyim-<slug> repo exist?) so the org can SEE the highest-priority toil that still has no liberating actor — the
   next robots to build.
 
   A coverage map, not a mandate: it observes the gap between the LPS priority and the built
@@ -24,9 +24,9 @@
 
 #?(:clj
    (defn actor-exists?
-     "True when an actor directory 20-actors/<slug> exists in the repo."
+     "True when a flat sibling actor repository com-etzhayyim-<slug> exists."
      [slug]
-     (.isDirectory (io/file "20-actors" slug))))
+     (.isDirectory (io/file ".." (str "com-etzhayyim-" slug)))))
 
 (defn build-priority
   "Every labor-liberation seed sector annotated with {:slug :lps :has-actor}, sorted by LPS

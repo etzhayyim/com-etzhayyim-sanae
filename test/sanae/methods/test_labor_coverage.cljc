@@ -1,6 +1,6 @@
 #!/usr/bin/env bb
 ;; sanae 早苗 — labor-liberation build-priority coverage tests.
-;; Run:  bb --classpath 20-actors 20-actors/sanae/methods/test_labor_coverage.cljc
+;; Run: bb test
 (ns sanae.methods.test-labor-coverage
   (:require [sanae.methods.labor-coverage :as cov]
             [clojure.test :refer [deftest is run-tests]]))

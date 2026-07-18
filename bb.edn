@@ -1,0 +1,15 @@
+{:paths ["src" "test"]
+ :tasks
+ {test {:doc "Run the standalone Sanae CLJC suite"
+        :requires ([clojure.test]
+                   [sanae.cells.autonomous-weeding.test-state-machine]
+                   [sanae.methods.test-labor-liberation]
+                   [sanae.methods.test-labor-coverage]
+                   [sanae.methods.test-charter-gates]
+                   [sanae.murakumo-test])
+        :task (clojure.test/run-tests
+               'sanae.cells.autonomous-weeding.test-state-machine
+               'sanae.methods.test-labor-liberation
+               'sanae.methods.test-labor-coverage
+               'sanae.methods.test-charter-gates
+               'sanae.murakumo-test)}}}

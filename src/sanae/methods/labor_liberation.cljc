@@ -1,6 +1,6 @@
 (ns sanae.methods.labor-liberation
   "sanae 早苗 — empirical Liberation Priority Score (LPS) + freed-labour-hours.
-  1:1 Clojure port of `methods/labor_liberation.py` (ADR-2606032100).
+  Native CLJC implementation (ADR-2606032100).
 
   Pure Clojure (clojure.core + Math/log10 only). Two computations:
 

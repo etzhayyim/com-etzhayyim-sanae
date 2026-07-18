@@ -4,7 +4,7 @@
   Substrate-native Clojure (clj + datomic first tier). sanae is field-agriculture robotics
   (sow/weed/harvest) — mechanical/biological only, herbicide-free, seed-sovereign, regenerative.
   Completes the labor-liberation robotics trio (sanae/hataori/kiyome, ADR-2606032100). Its
-  G9 regenerative-only discipline is const/enum-encoded across the 5 first-tier `lex/*.edn`
+  G9 regenerative-only discipline is const/enum-encoded across the 5 first-tier `contracts/lexicons/*.edn`
   lexicons (read via clojure.edn). This suite pins them so a future R-phase cell wave cannot
   silently drift them:
 
@@ -15,9 +15,9 @@
     regenerative soil — soilRegenerationReport records soilCarbonDeltaPermille; field phases bounded
 
   It weakens no gate; it asserts them. The dividend-coupling (G2), cash≡0 (G5), Murakumo-only (G4),
-  outward-gating (G7) and witness-quorum (G3) gates live in cells/manifest and are untouched here.
+  outward-gating (G7) and witness-quorum (G3) gates live in data/cells and manifest.edn.
 
-  `lex/*.edn` are now Datomic/Datascript tx-data (edn-datomize fanout, 2026-07-10): each file's
+  The canonical lexicon EDN files are Datomic/Datascript tx-data: each file's
   top-level map is wrapped `[{:db/id -1 :lex.<name>/lexicon ... :lex.<name>/defs <pr-str blob>}]`.
   `lex` below reconstitutes the original bare-keyed map (defs unblobbed back to a nested map) so
   every assertion below is unchanged."
@@ -27,9 +27,9 @@
 
 #?(:clj
    (do
-     (def ^:private here (.getParentFile (java.io.File. ^String *file*)))      ;; methods/
-     (def ^:private actor-dir (.getParentFile here))                          ;; sanae/
-     (def ^:private lexdir (java.io.File. actor-dir "lex"))
+     (def ^:private here (.getParentFile (java.io.File. ^String *file*)))
+     (def ^:private repo-dir (nth (iterate #(.getParentFile %) here) 3))
+     (def ^:private lexdir (java.io.File. repo-dir "contracts/lexicons"))
      (defn- unblob [v]
        (if (string? v)
          (try (let [parsed (edn/read-string v)] (if (coll? parsed) parsed v))

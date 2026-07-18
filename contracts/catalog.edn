@@ -1,0 +1,12 @@
+{:catalog/version 1
+ :catalog/canonical-format :edn
+ :actor :sanae
+ :contracts
+ [{:name :field-state-record :canonical/path "contracts/lexicons/fieldStateRecord.edn" :wire/path "wire/contracts/lexicons/fieldStateRecord.json"}
+  {:name :harvest-attestation :canonical/path "contracts/lexicons/harvestAttestation.edn" :wire/path "wire/contracts/lexicons/harvestAttestation.json"}
+  {:name :seeding-attestation :canonical/path "contracts/lexicons/seedingAttestation.edn" :wire/path "wire/contracts/lexicons/seedingAttestation.json"}
+  {:name :soil-regeneration-report :canonical/path "contracts/lexicons/soilRegenerationReport.edn" :wire/path "wire/contracts/lexicons/soilRegenerationReport.json"}
+  {:name :weeding-pass-record :canonical/path "contracts/lexicons/weedingPassRecord.edn" :wire/path "wire/contracts/lexicons/weedingPassRecord.json"}]
+ :identity
+ [{:kind :did-document :wire/path "wire/identity/did.json"}
+  {:kind :actor-profile :wire/path "wire/identity/profile.json"}]}

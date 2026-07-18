@@ -1,6 +1,6 @@
 (ns sanae.cells.autonomous-weeding.test-state-machine
   "State-machine tests for the sanae 早苗 autonomous_weeding cell (R0).
-  1:1 port of cells/test_state_machines.py (ADR-2606032100). G9 herbicide-free + G3 witness quorum;
+  Native CLJC state-machine suite (ADR-2606032100). G9 herbicide-free + G3 witness quorum;
   .solve() raises at R0."
   (:require [clojure.test :refer [deftest is]]
             [sanae.cells.autonomous-weeding.state-machine :as sm]))

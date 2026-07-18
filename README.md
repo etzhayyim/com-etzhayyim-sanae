@@ -21,12 +21,12 @@ weighted by years of service (勤続年数), funded by sanae's own surplus-donat
 ## Layout
 
 ```
-manifest.edn / manifest.jsonld   actor blueprint + DID
-cells/                           5 langgraph cells (autonomous_weeding fully coded)
-lex/                             com.etzhayyim.sanae.* lexicons
+manifest.edn                     canonical actor blueprint + DID
+src/sanae/cells/                 state-machine implementations
+contracts/lexicons/              canonical com.etzhayyim.sanae.* EDN lexicons
 kotoba/                          EAVT schema + :representative seed
 data/fleet.kotoba.edn            robotics fleet (design)
-methods/labor_liberation.py      LPS ranking + freed-labour-hours (7/7 tests)
+src/sanae/methods/               LPS ranking + freed-labour-hours
 ```
 
 **R0 design-only.** No hardware. Regenerative, seed-sovereign, herbicide-free by constitution (G9).
