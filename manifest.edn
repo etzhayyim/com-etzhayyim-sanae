@@ -48,9 +48,9 @@
   {:cell/id "harvest_coordination"    :cell/kind :state-machine :cell/runtime :cljc :cell/node "simeon"}
   {:cell/id "soil_regeneration_audit" :cell/kind :state-machine :cell/runtime :cljc :cell/node "levi"}]
 
- :actor/lex
- [{:lex/id "fieldStateRecord"}
-  {:lex/id "seedingAttestation"}
-  {:lex/id "weedingPassRecord"}
-  {:lex/id "harvestAttestation"}
-  {:lex/id "soilRegenerationReport"}]}
+ :actor/lexicons
+ ["com.etzhayyim.sanae.fieldStateRecord"
+  "com.etzhayyim.sanae.seedingAttestation"
+  "com.etzhayyim.sanae.weedingPassRecord"
+  "com.etzhayyim.sanae.harvestAttestation"
+  "com.etzhayyim.sanae.soilRegenerationReport"]}
